@@ -3,6 +3,7 @@
     "name": "abril-test",
     "slug": "abril-test",
     "version": "1.0.0",
+    "schema": "abril-test",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -18,13 +19,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.abril.test"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.abril.test"
     },
     "web": {
       "favicon": "./assets/favicon.png"
