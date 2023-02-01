@@ -1,7 +1,11 @@
 import Routes from '@/routes';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import store from '@/store';
+import { Provider as StoreProvider } from 'react-redux';
 
 export default function App() {
-  return <Routes />;
+  return (
+    <StoreProvider store={store}>
+      <Routes />
+    </StoreProvider>
+  );
 }
