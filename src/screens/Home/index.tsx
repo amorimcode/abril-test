@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import translate from '@/services/translate';
+import { AdvancedText } from './styles';
 
 const Home = () => {
   return (
     <View>
-      <Text>{translate('APP.SCREENS.HOME.TITLE')}</Text>
+      <AdvancedText>{translate('APP.SCREENS.HOME.TITLE')}</AdvancedText>
     </View>
   );
 };

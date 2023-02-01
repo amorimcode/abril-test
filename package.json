@@ -13,6 +13,7 @@
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
     "expo": "~47.0.12",
+    "expo-font": "~11.0.1",
     "expo-localization": "~14.0.0",
     "expo-splash-screen": "~0.17.5",
     "expo-status-bar": "~1.4.2",
@@ -30,6 +31,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@types/styled-components-react-native": "^5.2.1",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.50.0",
     "babel-eslint": "^10.1.0",
