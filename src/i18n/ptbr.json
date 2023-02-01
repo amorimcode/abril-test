@@ -1,0 +1,10 @@
+{
+  "APP": {
+    "SCREENS": {
+      "HOME": {
+        "TITLE": "Repositórios",
+        "DESCRIPTION": "Home Screen"
+      }
+    }
+  }
+}

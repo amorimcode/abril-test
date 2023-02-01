@@ -1,13 +1,11 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import translate from '@/services/translate';
 
 const Home = () => {
-  const test = 'teste';
-  console.log(test);
-
   return (
     <View>
-      <Text>Home</Text>
+      <Text>{translate('APP.SCREENS.HOME.TITLE')}</Text>
     </View>
   );
 };

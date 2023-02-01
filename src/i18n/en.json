@@ -1,0 +1,10 @@
+{
+  "APP": {
+    "SCREENS": {
+      "HOME": {
+        "TITLE": "Repositories",
+        "DESCRIPTION": "Home Screen"
+      }
+    }
+  }
+}
