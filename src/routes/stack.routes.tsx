@@ -7,7 +7,6 @@ export const StackRoutes = () => {
   return (
     <Navigator>
       <Screen name="Home" component={Home} />
-      <Screen name="Details" component={Details} />
     </Navigator>
   );
 };
