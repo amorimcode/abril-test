@@ -4,6 +4,7 @@ import { StyleProp, ViewStyle } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 type AdvancedSearchBarProps = {
+  repositoriesList: models.Repository[];
   style?: StyleProp<ViewStyle>;
   value?: string;
   setValue: (value: string) => void;

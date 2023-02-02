@@ -1,5 +1,6 @@
+import translate from '@/services/translate';
 import React from 'react';
-import { View } from 'react-native';
+import { ScrollView } from 'react-native';
 import {
   ItemContainer,
   ItemTitle,
@@ -10,20 +11,29 @@ import {
   WrapperText,
 } from './styles';
 
-const RepositoriesList = () => {
+type RepositoriesListProps = {
+  repositories: models.Item[];
+};
+
+const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
   return (
-    <View>
-      <ItemContainer>
-        <Wrapper>
-          <RepoImage />
-          <WrapperText>
-            <ItemTitle>Repositório 1</ItemTitle>
-            <UserNameText>amorimcode</UserNameText>
-          </WrapperText>
-          <StarCountText>24 stars</StarCountText>
-        </Wrapper>
-      </ItemContainer>
-    </View>
+    <ScrollView>
+      {repositories &&
+        repositories.map((repository, index) => (
+          <ItemContainer key={index}>
+            <Wrapper>
+              <RepoImage source={{ uri: repository.owner.avatar_url }} />
+              <WrapperText>
+                <ItemTitle>{repository.name}</ItemTitle>
+                <UserNameText>{repository.owner.login}</UserNameText>
+              </WrapperText>
+              <StarCountText>
+                {repository.stargazers_count} {translate('APP.COMPONENTS.REPOSITORY_LIST.STARS')}
+              </StarCountText>
+            </Wrapper>
+          </ItemContainer>
+        ))}
+    </ScrollView>
   );
 };
 

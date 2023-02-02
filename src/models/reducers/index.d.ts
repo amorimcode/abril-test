@@ -1,7 +1,7 @@
 export as namespace reducers;
 
 export type HomeState = {
-  repositories: any[];
+  repositories: models.item[];
 };
 
 export type ReduxState = {

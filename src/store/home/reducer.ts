@@ -2,7 +2,7 @@ const initialState: reducers.HomeState = {
   repositories: [],
 };
 
-const homeReducer = (state = initialState, action: any) => {
+const homeReducer = (state = initialState, action: any): reducers.HomeState => {
   switch (action.type) {
     case 'SET_REPOSITORIES':
       return {
@@ -13,4 +13,5 @@ const homeReducer = (state = initialState, action: any) => {
       return state;
   }
 };
+
 export default homeReducer;

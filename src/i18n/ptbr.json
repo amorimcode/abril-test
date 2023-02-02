@@ -9,6 +9,9 @@
     "COMPONENTS": {
       "SEARCH_BAR": {
         "PLACEHOLDER": "Busca por repositórios"
+      },
+      "REPOSITORY_LIST": {
+        "STARS": "stars"
       }
     }
   }
