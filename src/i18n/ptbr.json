@@ -5,6 +5,11 @@
         "TITLE": "Repositórios",
         "DESCRIPTION": "Home Screen"
       }
+    },
+    "COMPONENTS": {
+      "SEARCH_BAR": {
+        "PLACEHOLDER": "Busca por repositórios"
+      }
     }
   }
 }

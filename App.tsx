@@ -9,6 +9,7 @@ import { useEffect } from 'react';
 import { ThemeProvider } from 'styled-components/native';
 import theme from '@/styles/theme';
 import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
 
 export default function App() {
   const [fontsLoaded] = useFonts({
@@ -17,18 +18,19 @@ export default function App() {
     'SF-Pro-Text-Semibold': require('./assets/fonts/SF-Pro-Text-Semibold.otf'),
   });
 
-  if (!fontsLoaded) {
-    return null;
-  }
-
   useEffect(() => {
     // i18n.changeLanguage(Localization.locale);
     i18n.changeLanguage('pt-br');
   }, [Localization.locale]);
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <ThemeProvider theme={theme}>
       <StoreProvider store={store}>
+        <StatusBar style="auto" />
         <Routes />
       </StoreProvider>
     </ThemeProvider>
