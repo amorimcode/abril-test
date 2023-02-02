@@ -7,9 +7,10 @@ type AdvancedSearchBarProps = {
   style?: StyleProp<ViewStyle>;
   value?: string;
   setValue: (value: string) => void;
+  onSubmitEditing?: () => void;
 };
 
-const AdvancedSearchBar = ({ style, value, setValue }: AdvancedSearchBarProps) => {
+const AdvancedSearchBar = ({ style, value, setValue, onSubmitEditing }: AdvancedSearchBarProps) => {
   return (
     <Searchbar
       placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}
@@ -21,6 +22,7 @@ const AdvancedSearchBar = ({ style, value, setValue }: AdvancedSearchBarProps) =
         fontSize: 17,
         lineHeight: 22,
       }}
+      onSubmitEditing={onSubmitEditing}
     />
   );
 };

@@ -2,7 +2,7 @@
   "name": "abril-test",
   "version": "1.0.0",
   "scripts": {
-    "start": "expo start --dev-client",
+    "start": "npx expo start",
     "android": "expo run:android",
     "ios": "expo run:ios",
     "web": "expo start --web"
@@ -12,6 +12,7 @@
     "@react-navigation/native-stack": "^6.9.9",
     "@types/react": "~18.0.24",
     "@types/react-native": "~0.70.6",
+    "axios": "^1.3.1",
     "expo": "~47.0.12",
     "expo-font": "~11.0.1",
     "expo-localization": "~14.0.0",

@@ -1,3 +1,9 @@
 export as namespace reducers;
 
-export type ReduxState = {};
+export type HomeState = {
+  repositories: any[];
+};
+
+export type ReduxState = {
+  home: HomeState;
+};
