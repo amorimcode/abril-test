@@ -16,6 +16,11 @@ const AdvancedSearchBar = ({ style, value, setValue }: AdvancedSearchBarProps) =
       value={value ?? ''}
       style={style}
       onChangeText={(text) => setValue(text ?? '')}
+      inputStyle={{
+        fontFamily: 'SF-Pro-Text-Regular',
+        fontSize: 17,
+        lineHeight: 22,
+      }}
     />
   );
 };
