@@ -6,6 +6,7 @@ import {
   ItemTitle,
   RepoImage,
   StarCountText,
+  StarWrapper,
   UserNameText,
   Wrapper,
   WrapperText,
@@ -27,9 +28,11 @@ const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
                 <ItemTitle>{repository.name}</ItemTitle>
                 <UserNameText>{repository.owner.login}</UserNameText>
               </WrapperText>
-              <StarCountText>
-                {repository.stargazers_count} {translate('APP.COMPONENTS.REPOSITORY_LIST.STARS')}
-              </StarCountText>
+              <StarWrapper style={{ flex: 1, alignItems: 'flex-end' }}>
+                <StarCountText>
+                  {repository.stargazers_count} {translate('APP.COMPONENTS.REPOSITORY_LIST.STARS')}
+                </StarCountText>
+              </StarWrapper>
             </Wrapper>
           </ItemContainer>
         ))}

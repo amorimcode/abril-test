@@ -31,9 +31,12 @@ export const StarCountText = styled.Text`
   line-height: 18px;
   letter-spacing: -0.08px;
 
-  margin-left: 35%;
-
   color: ${({ theme }) => theme.colors.grayText};
+`;
+
+export const StarWrapper = styled.View`
+  flex: 1;
+  align-items: flex-end;
 `;
 
 export const RepoImage = styled.Image`
@@ -54,6 +57,5 @@ export const WrapperText = styled.View`
 export const Wrapper = styled.View`
   display: flex;
   flex-direction: row;
-  /* align-items: center; */
   padding: 10px;
 `;
