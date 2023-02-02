@@ -1,11 +1,7 @@
 import styled from 'styled-components/native';
 
 export const ItemContainer = styled.View`
-  flex-direction: row;
-  align-items: center;
   padding: 10px;
-  border-bottom-width: 1px;
-  border-bottom-color: #ebebeb;
 `;
 
 export const ItemTitle = styled.Text`
@@ -58,4 +54,11 @@ export const Wrapper = styled.View`
   display: flex;
   flex-direction: row;
   padding: 10px;
+`;
+
+export const Divider = styled.View`
+  border-bottom-width: 1px;
+  border-bottom-color: #ebebeb;
+  margin-right: 16px;
+  margin-left: 80px;
 `;

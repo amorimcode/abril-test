@@ -2,6 +2,7 @@ import translate from '@/services/translate';
 import React from 'react';
 import { ScrollView } from 'react-native';
 import {
+  Divider,
   ItemContainer,
   ItemTitle,
   RepoImage,
@@ -34,6 +35,7 @@ const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
                 </StarCountText>
               </StarWrapper>
             </Wrapper>
+            <Divider />
           </ItemContainer>
         ))}
     </ScrollView>
