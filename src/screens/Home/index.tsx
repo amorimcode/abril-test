@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import translate from '@/services/translate';
 import { HomeTitle, HomeView } from './styles';
 import AdvancedSearchBar from '@/components/AdvancedSearchBar';
 import RepositoriesList from '@/components/RepositoriesList';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 
 import * as HomeActions from '@/store/home/actions';
 import useReduxState from '@/hooks/useReduxState';
@@ -19,10 +19,6 @@ const Home = () => {
   const handleSearch = () => {
     dispatch(HomeActions.searchRepositories(search) as any);
   };
-
-  useEffect(() => {
-    console.log(repositories);
-  }, [repositories]);
 
   return (
     <HomeView>

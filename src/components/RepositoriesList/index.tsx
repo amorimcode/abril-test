@@ -1,4 +1,6 @@
 import translate from '@/services/translate';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import { ScrollView } from 'react-native';
 import {
@@ -18,11 +20,16 @@ type RepositoriesListProps = {
 };
 
 const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
+  const navigation = useNavigation();
+
   return (
     <ScrollView>
       {repositories &&
-        repositories.map((repository, index) => (
-          <ItemContainer key={index}>
+        repositories.map((repository) => (
+          <ItemContainer
+            key={repository.id}
+            onPress={() => navigation.navigate('Repo', { uri: repository.html_url })}
+          >
             <Wrapper>
               <RepoImage source={{ uri: repository.owner.avatar_url }} />
               <WrapperText>
