@@ -20,3 +20,10 @@ export const searchRepositories = (search: string, page: number) => async (dispa
     console.log(error);
   }
 };
+
+export const clearRepositories = () => async (dispatch: any) => {
+  dispatch({
+    type: SET_REPOSITORIES,
+    payload: [],
+  });
+};

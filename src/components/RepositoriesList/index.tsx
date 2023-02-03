@@ -43,8 +43,8 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
     if (isCloseToBottom(nativeEvent)) {
       setLoading(true);
 
-      setPage(page + 15);
-      await dispatch(HomeActions.searchRepositories(search, page) as any);
+      setPage(page + 1);
+      await dispatch(HomeActions.searchRepositories(search, page + 1) as any);
 
       setLoading(false);
 

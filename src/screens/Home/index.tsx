@@ -19,15 +19,15 @@ const Home = () => {
     home: { repositories },
   } = useReduxState();
 
-  const handleSearch = () => {
-    setPage(15);
-    dispatch(HomeActions.searchRepositories(search, 15) as any);
+  const handleSearch = async () => {
+    setPage(1);
+    await dispatch(HomeActions.clearRepositories() as any);
+    await dispatch(HomeActions.searchRepositories(search, 1) as any);
   };
 
   useEffect(() => {
     if (searchBarInput.current?.isFocused()) {
-      setPage(15);
-      dispatch(HomeActions.searchRepositories(search, 15) as any);
+      handleSearch();
     }
   }, [searchBarInput.current?.isFocused()]);
 
