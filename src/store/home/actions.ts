@@ -17,12 +17,6 @@ export const searchRepositories = (search: string) => async (dispatch: any) => {
       payload: data.items,
     });
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.name);
-      dispatch({
-        type: SET_REPOSITORIES,
-        payload: [],
-      });
-    }
+    console.log(error);
   }
 };

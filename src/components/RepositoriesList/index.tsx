@@ -2,7 +2,7 @@ import translate from '@/services/translate';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { NativeScrollEvent, ScrollView } from 'react-native';
 import {
   Divider,
   ItemContainer,
@@ -22,8 +22,23 @@ type RepositoriesListProps = {
 const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
   const navigation = useNavigation();
 
+  const isCloseToBottom = ({
+    layoutMeasurement,
+    contentOffset,
+    contentSize,
+  }: NativeScrollEvent) => {
+    const paddingToBottom = 20;
+    return layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
+  };
+
   return (
-    <ScrollView>
+    <ScrollView
+      onScroll={({ nativeEvent }) => {
+        if (isCloseToBottom(nativeEvent)) {
+          console.log('end reached');
+        }
+      }}
+    >
       {repositories &&
         repositories.map((repository) => (
           <ItemContainer
