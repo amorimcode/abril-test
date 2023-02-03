@@ -1,19 +1,27 @@
 import translate from '@/services/translate';
 import * as React from 'react';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, TextInput, ViewStyle } from 'react-native';
 import { Searchbar } from 'react-native-paper';
 
 type AdvancedSearchBarProps = {
-  repositoriesList: models.Repository[];
+  ref?: React.RefObject<TextInput>;
+  repositoriesList: models.Item[];
   style?: StyleProp<ViewStyle>;
   value?: string;
   setValue: (value: string) => void;
   onSubmitEditing?: () => void;
 };
 
-const AdvancedSearchBar = ({ style, value, setValue, onSubmitEditing }: AdvancedSearchBarProps) => {
+const AdvancedSearchBar = ({
+  style,
+  value,
+  setValue,
+  onSubmitEditing,
+  ref,
+}: AdvancedSearchBarProps) => {
   return (
     <Searchbar
+      ref={ref}
       placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}
       value={value ?? ''}
       style={style}
@@ -22,6 +30,11 @@ const AdvancedSearchBar = ({ style, value, setValue, onSubmitEditing }: Advanced
         fontFamily: 'SF-Pro-Text-Regular',
         fontSize: 17,
         lineHeight: 22,
+      }}
+      onBlur={() => {
+        if (onSubmitEditing) {
+          onSubmitEditing();
+        }
       }}
       onSubmitEditing={onSubmitEditing}
     />

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import translate from '@/services/translate';
 import { HomeTitle, HomeView } from './styles';
 import AdvancedSearchBar from '@/components/AdvancedSearchBar';
@@ -7,9 +7,11 @@ import { useDispatch } from 'react-redux';
 
 import * as HomeActions from '@/store/home/actions';
 import useReduxState from '@/hooks/useReduxState';
+import { TextInput } from 'react-native';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const searchBarInput = useRef<TextInput>(null);
   const [search, setSearch] = useState('');
 
   const {
@@ -19,6 +21,12 @@ const Home = () => {
   const handleSearch = () => {
     dispatch(HomeActions.searchRepositories(search) as any);
   };
+
+  useEffect(() => {
+    if (searchBarInput.current?.isFocused()) {
+      handleSearch();
+    }
+  }, [searchBarInput.current?.isFocused()]);
 
   return (
     <HomeView>
