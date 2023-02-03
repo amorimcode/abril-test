@@ -2,10 +2,6 @@ import Routes from '@/routes';
 import store from '@/store';
 import { Provider as StoreProvider } from 'react-redux';
 
-import * as Localization from 'expo-localization';
-import i18n from '@/i18n/i18n';
-import { useEffect } from 'react';
-
 import { ThemeProvider } from 'styled-components/native';
 import theme from '@/styles/theme';
 import { useFonts } from 'expo-font';
