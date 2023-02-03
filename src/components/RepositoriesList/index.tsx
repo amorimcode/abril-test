@@ -1,6 +1,5 @@
 import translate from '@/services/translate';
 import { useNavigation } from '@react-navigation/native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React from 'react';
 import { NativeScrollEvent, ScrollView } from 'react-native';
 import {
@@ -21,6 +20,7 @@ type RepositoriesListProps = {
 
 const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
   const navigation = useNavigation();
+  const [loading, setLoading] = React.useState(false);
 
   const isCloseToBottom = ({
     layoutMeasurement,
@@ -31,14 +31,17 @@ const RepositoriesList = ({ repositories }: RepositoriesListProps) => {
     return layoutMeasurement.height + contentOffset.y >= contentSize.height - paddingToBottom;
   };
 
+  const onScroll = ({ nativeEvent }: { nativeEvent: NativeScrollEvent }) => {
+    if (isCloseToBottom(nativeEvent)) {
+      if (loading) return;
+      setLoading(true);
+
+      console.log('end reached');
+    }
+  };
+
   return (
-    <ScrollView
-      onScroll={({ nativeEvent }) => {
-        if (isCloseToBottom(nativeEvent)) {
-          console.log('end reached');
-        }
-      }}
-    >
+    <ScrollView onScroll={onScroll}>
       {repositories &&
         repositories.map((repository) => (
           <ItemContainer
