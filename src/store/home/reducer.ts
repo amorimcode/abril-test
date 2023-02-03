@@ -7,7 +7,7 @@ const homeReducer = (state = initialState, action: any): reducers.HomeState => {
     case 'SET_REPOSITORIES':
       return {
         ...state,
-        repositories: action.payload,
+        repositories: [...state.repositories, ...action.payload],
       };
     default:
       return state;

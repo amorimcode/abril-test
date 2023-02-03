@@ -43,8 +43,7 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
     if (isCloseToBottom(nativeEvent)) {
       setLoading(true);
 
-      console.log(page);
-      setPage(page + 1);
+      setPage(page + 15);
       await dispatch(HomeActions.searchRepositories(search, page) as any);
 
       setLoading(false);
@@ -54,8 +53,8 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
   };
 
   return (
-    <ScrollView onScroll={onScroll}>
-      {repositories &&
+    <ScrollView onScroll={onScroll} scrollEventThrottle={15}>
+      {repositories.length > 0 &&
         repositories.map((repository) => (
           <ItemContainer onPress={() => navigation.navigate('Repo', { uri: repository.html_url })}>
             <Wrapper>

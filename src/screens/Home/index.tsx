@@ -12,7 +12,7 @@ import { TextInput } from 'react-native';
 const Home = () => {
   const dispatch = useDispatch();
   const searchBarInput = useRef<TextInput>(null);
-  const [page, setPage] = React.useState(1);
+  const [page, setPage] = React.useState(15);
   const [search, setSearch] = useState('');
 
   const {
@@ -20,13 +20,14 @@ const Home = () => {
   } = useReduxState();
 
   const handleSearch = () => {
-    setPage(1);
-    dispatch(HomeActions.searchRepositories(search, 1) as any);
+    setPage(15);
+    dispatch(HomeActions.searchRepositories(search, 15) as any);
   };
 
   useEffect(() => {
     if (searchBarInput.current?.isFocused()) {
-      handleSearch();
+      setPage(15);
+      dispatch(HomeActions.searchRepositories(search, 15) as any);
     }
   }, [searchBarInput.current?.isFocused()]);
 

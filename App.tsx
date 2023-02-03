@@ -18,10 +18,10 @@ export default function App() {
     'SF-Pro-Text-Semibold': require('./assets/fonts/SF-Pro-Text-Semibold.otf'),
   });
 
-  useEffect(() => {
-    // i18n.changeLanguage(Localization.locale);
-    i18n.changeLanguage('pt-br');
-  }, [Localization.locale]);
+  // useEffect(() => {
+  //   // i18n.changeLanguage(Localization.locale);
+  //   i18n.changeLanguage('pt-br');
+  // }, [Localization.locale]);
 
   if (!fontsLoaded) {
     return null;

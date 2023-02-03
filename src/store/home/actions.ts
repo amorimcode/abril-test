@@ -10,12 +10,12 @@ export const searchRepositories = (search: string, page: number) => async (dispa
   try {
     const data = await HomeApi.searchRepositories(search ?? '', page);
 
-    console.log('size data', data.items.length);
-
-    dispatch({
-      type: SET_REPOSITORIES,
-      payload: data.items ?? [],
-    });
+    if (data.items) {
+      dispatch({
+        type: SET_REPOSITORIES,
+        payload: data.items,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
