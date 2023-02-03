@@ -8,13 +8,21 @@ export type SetRepositoriesAction = {
 
 export const searchRepositories = (search: string) => async (dispatch: any) => {
   try {
-    const data = await HomeApi.searchRepositories(search);
+    const data = await HomeApi.searchRepositories(search ?? '');
+
+    console.log(data);
 
     dispatch({
       type: SET_REPOSITORIES,
       payload: data.items,
     });
   } catch (error) {
-    console.log(error);
+    if (error instanceof Error) {
+      console.log(error.name);
+      dispatch({
+        type: SET_REPOSITORIES,
+        payload: [],
+      });
+    }
   }
 };
