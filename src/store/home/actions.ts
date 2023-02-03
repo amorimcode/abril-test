@@ -6,15 +6,15 @@ export type SetRepositoriesAction = {
   payload: any;
 };
 
-export const searchRepositories = (search: string) => async (dispatch: any) => {
+export const searchRepositories = (search: string, page: number) => async (dispatch: any) => {
   try {
-    const data = await HomeApi.searchRepositories(search ?? '');
+    const data = await HomeApi.searchRepositories(search ?? '', page);
 
-    console.log(data);
+    console.log('size data', data.items.length);
 
     dispatch({
       type: SET_REPOSITORIES,
-      payload: data.items,
+      payload: data.items ?? [],
     });
   } catch (error) {
     console.log(error);

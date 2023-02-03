@@ -12,6 +12,7 @@ import { TextInput } from 'react-native';
 const Home = () => {
   const dispatch = useDispatch();
   const searchBarInput = useRef<TextInput>(null);
+  const [page, setPage] = React.useState(1);
   const [search, setSearch] = useState('');
 
   const {
@@ -19,7 +20,8 @@ const Home = () => {
   } = useReduxState();
 
   const handleSearch = () => {
-    dispatch(HomeActions.searchRepositories(search) as any);
+    setPage(1);
+    dispatch(HomeActions.searchRepositories(search, 1) as any);
   };
 
   useEffect(() => {
@@ -39,7 +41,7 @@ const Home = () => {
         style={{ width: '90%', height: 36, borderRadius: 10, margin: 16 }}
         onSubmitEditing={() => handleSearch()}
       />
-      <RepositoriesList repositories={repositories} />
+      <RepositoriesList repositories={repositories} search={search} page={page} setPage={setPage} />
     </HomeView>
   );
 };

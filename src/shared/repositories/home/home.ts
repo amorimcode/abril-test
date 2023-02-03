@@ -1,12 +1,13 @@
 import { getInstance } from '@/shared/repositories/instance';
 
 const HomeApi = {
-  searchRepositories: async (search: string) => {
+  searchRepositories: async (search: string, page: number) => {
     const instance = getInstance();
     const { data } = await instance.get('search/repositories', {
       params: {
         q: search,
-        per_page: 10,
+        per_page: 15,
+        page,
       },
     });
 
