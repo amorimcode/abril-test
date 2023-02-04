@@ -5,6 +5,17 @@
         "TITLE": "Repositories",
         "DESCRIPTION": "Home Screen"
       }
+    },
+    "COMPONENTS": {
+      "SEARCH_BAR": {
+        "PLACEHOLDER": "Search for repositories"
+      },
+      "REPOSITORY_LIST": {
+        "STARS": "stars"
+      }
     }
+  },
+  "ERRORS": {
+    "REQUEST_ERROR": "Request error"
   }
 }
