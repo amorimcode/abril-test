@@ -13,7 +13,7 @@ const RepoWebView = () => {
   const { uri, title } = route.params as ParamsProps;
 
   useEffect(() => {
-    navigation.setOptions({ title });
+    navigation.setOptions({ title: '', headerBackTitle: title });
   }, []);
 
   return <WebView source={{ uri }}></WebView>;
