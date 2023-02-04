@@ -34,9 +34,7 @@ export const searchRepositories =
         });
       }
     } catch (error) {
-      if (error instanceof Error) {
-        Alert.alert(translate('APP.ERRORS.REQUEST_ERROR'), error.message);
-      }
+      console.log(error);
     }
   };
 
