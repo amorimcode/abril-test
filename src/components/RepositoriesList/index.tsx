@@ -47,16 +47,17 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
       await dispatch(HomeActions.searchRepositories(search, page + 1) as any);
 
       setLoading(false);
-
-      console.log('end reached');
     }
   };
 
   return (
     <ScrollView onScroll={onScroll} scrollEventThrottle={15}>
       {repositories.length > 0 &&
-        repositories.map((repository) => (
-          <ItemContainer onPress={() => navigation.navigate('Repo', { uri: repository.html_url })}>
+        repositories.map((repository, index) => (
+          <ItemContainer
+            key={index}
+            onPress={() => navigation.navigate('Repo', { uri: repository.html_url })}
+          >
             <Wrapper>
               <RepoImage source={{ uri: repository.owner.avatar_url }} />
               <WrapperText>

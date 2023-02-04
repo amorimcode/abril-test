@@ -20,7 +20,7 @@ export const searchRepositories = (search: string, page: number) => async (dispa
     }
   } catch (error) {
     if (error instanceof Error) {
-      Alert.alert(translate('APP.REQUEST_ERROR'), error.message);
+      Alert.alert(translate('APP.ERRORS.REQUEST_ERROR'), error.message);
     }
   }
 };
