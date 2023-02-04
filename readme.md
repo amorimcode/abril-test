@@ -22,6 +22,6 @@ Em seguida pressione 'a' para rodar em um emulador avd disponível ou leia o QR 
 - Redux Thunk
 - Prettier e ESlist configurado
 - Expo bare workflow
-- Testes com Jest
+- Testes com Jest e react-testing-library
 
 Espero que gostem.
