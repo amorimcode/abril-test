@@ -14,5 +14,8 @@
         "STARS": "stars"
       }
     }
+  },
+  "ERRORS": {
+    "REQUEST_ERROR": "Erro ao realizar a requisição"
   }
 }

@@ -7,19 +7,25 @@ import { useDispatch } from 'react-redux';
 
 import * as HomeActions from '@/store/home/actions';
 import useReduxState from '@/hooks/useReduxState';
-import { TextInput } from 'react-native';
+import { ActivityIndicator, TextInput } from 'react-native';
 
 const Home = () => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false);
   const searchBarInput = useRef<TextInput>(null);
+  const [page, setPage] = useState(1);
   const [search, setSearch] = useState('');
 
   const {
     home: { repositories },
   } = useReduxState();
 
-  const handleSearch = () => {
-    dispatch(HomeActions.searchRepositories(search) as any);
+  const handleSearch = async () => {
+    setLoading(true);
+    setPage(1);
+    await dispatch(HomeActions.clearRepositories() as any);
+    await dispatch(HomeActions.searchRepositories(search, 1) as any);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -36,10 +42,18 @@ const Home = () => {
         repositoriesList={repositories}
         value={search}
         setValue={setSearch}
-        style={{ width: '90%', height: 36, borderRadius: 10, margin: 16 }}
+        style={{ height: 36 }}
         onSubmitEditing={() => handleSearch()}
       />
-      <RepositoriesList repositories={repositories} />
+      {!loading && (
+        <RepositoriesList
+          repositories={repositories}
+          search={search}
+          page={page}
+          setPage={setPage}
+        />
+      )}
+      {loading && <ActivityIndicator size="large" color="black" />}
     </HomeView>
   );
 };

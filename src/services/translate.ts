@@ -1,9 +1,7 @@
-import { useTranslation } from 'react-i18next';
+import i18n from '@/i18n/i18n';
 
 const translate = (key: string) => {
-  const { t } = useTranslation();
-
-  return t(key ?? 'APP.NOT_FOUND');
+  return i18n.t(key ?? 'APP.NOT_FOUND');
 };
 
 export default translate;
