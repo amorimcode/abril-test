@@ -2,7 +2,12 @@ const initialState: reducers.HomeState = {
   repositories: [],
 };
 
-const homeReducer = (state = initialState, action: any): reducers.HomeState => {
+interface Action {
+  type: string;
+  payload: models.Item[];
+}
+
+const homeReducer = (state = initialState, action: Action): reducers.HomeState => {
   switch (action.type) {
     case 'SET_REPOSITORIES':
       return {

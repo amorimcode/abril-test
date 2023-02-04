@@ -22,7 +22,6 @@ const Home = () => {
 
   const handleSearch = async () => {
     setLoading(true);
-    setPage(1);
     await dispatch(HomeActions.clearRepositories() as any);
     await dispatch(HomeActions.searchRepositories(search, 1) as any);
     setLoading(false);
