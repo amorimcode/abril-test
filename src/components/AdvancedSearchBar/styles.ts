@@ -17,7 +17,6 @@ export const Icon = styled(Ionicons)`
 export const InputText = styled.TextInput.attrs<TextInputProps>({
   placeholderTextColor: 'rgba(60, 60, 67, 0.6)',
   allowFontScaling: false,
-  placeholder: 'Busca por repositórios',
 } as TextInputProps)`
   font-size: 17px;
   background-color: ${({ theme }) => theme.colors.searchBackground};
