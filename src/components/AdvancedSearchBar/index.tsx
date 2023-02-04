@@ -19,8 +19,9 @@ const AdvancedSearchBar = ({
   ref,
 }: AdvancedSearchBarProps) => {
   return (
-    <Container testID="advanced-search-bar">
+    <Container>
       <InputText
+        testID="advanced-search-bar"
         ref={ref}
         placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}
         value={value ?? ''}

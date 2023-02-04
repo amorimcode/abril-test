@@ -6,7 +6,7 @@ import { searchRepositories } from '@/store/home/actions';
 import { ThemeProvider } from 'styled-components/native';
 import theme from '@/styles/theme';
 
-describe('AdvancedSearchBar render', async () => {
+describe('AdvancedSearchBar render', () => {
   const dispatch = jest.fn();
 
   const myInitialState = 'My Initial State';
@@ -29,5 +29,28 @@ describe('AdvancedSearchBar render', async () => {
     );
 
     expect(getByTestId('advanced-search-bar')).toBeTruthy();
+  });
+});
+
+describe('AdvancedSearchBar interactions', () => {
+  test('should call on search when searchbar goes out of focus', () => {
+    const onSearch = jest.fn();
+
+    const { getByTestId } = render(
+      <ThemeProvider theme={theme}>
+        <AdvancedSearchBar
+          onSubmitEditing={onSearch}
+          setValue={function (value: string): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    const searchbar = getByTestId('advanced-search-bar');
+
+    searchbar.props.onBlur();
+
+    expect(onSearch).toHaveBeenCalled();
   });
 });
