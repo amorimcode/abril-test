@@ -1,7 +1,7 @@
 import translate from '@/services/translate';
 import * as React from 'react';
 import { StyleProp, TextInput, ViewStyle } from 'react-native';
-import { Searchbar } from 'react-native-paper';
+import { Container, Icon, InputText } from './styles';
 
 type AdvancedSearchBarProps = {
   ref?: React.RefObject<TextInput>;
@@ -20,24 +20,22 @@ const AdvancedSearchBar = ({
   ref,
 }: AdvancedSearchBarProps) => {
   return (
-    <Searchbar
-      ref={ref}
-      placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}
-      value={value ?? ''}
-      style={style}
-      onChangeText={(text) => setValue(text ?? '')}
-      inputStyle={{
-        fontFamily: 'SF-Pro-Text-Regular',
-        fontSize: 17,
-        lineHeight: 22,
-      }}
-      onBlur={() => {
-        if (onSubmitEditing) {
-          onSubmitEditing();
-        }
-      }}
-      onSubmitEditing={onSubmitEditing}
-    />
+    <Container>
+      <InputText
+        ref={ref}
+        placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}
+        value={value ?? ''}
+        style={style}
+        onChangeText={(text) => setValue(text ?? '')}
+        onBlur={() => {
+          if (onSubmitEditing) {
+            onSubmitEditing();
+          }
+        }}
+        onSubmitEditing={onSubmitEditing}
+      />
+      <Icon name="ios-search" />
+    </Container>
   );
 };
 

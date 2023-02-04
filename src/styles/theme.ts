@@ -3,6 +3,8 @@ export default {
     background: '#ffffff;',
     text: '#000000',
     grayText: '#48484A',
+    grayTextSearch: 'rgba(60, 60, 67, 0.6)',
+    searchBackground: 'rgba(118, 118, 128, 0.12)',
   },
 
   fonts: {

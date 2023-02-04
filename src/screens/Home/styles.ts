@@ -14,5 +14,5 @@ export const HomeTitle = styled.Text`
   color: ${({ theme }) => theme.colors.text};
 
   margin-top: 66px;
-  padding: 0 24px;
+  padding: 0 16px;
 `;

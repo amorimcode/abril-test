@@ -1,15 +1,29 @@
-import styled from 'styled-components';
+import { TextInputProps } from 'react-native';
+import styled from 'styled-components/native';
+import { Ionicons } from '@expo/vector-icons';
 
-export const Container = styled.view`
-  margin: 15px;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: row;
-  width: 90%;
+export const Container = styled.View`
+  margin: 16px 16px 10px 16px;
+  justify-content: center;
 `;
 
-export const Input = styled.input`
-  font-size: 20px;
-  margin-left: 10px;
-  width: 90%;
+export const Icon = styled(Ionicons)`
+  font-size: 15px;
+  color: ${({ theme }) => theme.colors.grayTextSearch};
+  position: absolute;
+  left: 8px;
+`;
+
+export const InputText = styled.TextInput.attrs<TextInputProps>({
+  placeholderTextColor: 'rgba(60, 60, 67, 0.6)',
+  allowFontScaling: false,
+  placeholder: 'Busca por repositórios',
+} as TextInputProps)`
+  font-size: 17px;
+  background-color: ${({ theme }) => theme.colors.searchBackground};
+  border-radius: 10px;
+  font-family: 'SF-Pro-Text-Regular';
+  padding-left: 30px;
+  line-height: 22px;
+  letter-spacing: -0.41px;
 `;

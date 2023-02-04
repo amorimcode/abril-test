@@ -42,7 +42,7 @@ const Home = () => {
         repositoriesList={repositories}
         value={search}
         setValue={setSearch}
-        style={{ width: '90%', height: 36, borderRadius: 10, margin: 16 }}
+        style={{ height: 36 }}
         onSubmitEditing={() => handleSearch()}
       />
       {!loading && (
