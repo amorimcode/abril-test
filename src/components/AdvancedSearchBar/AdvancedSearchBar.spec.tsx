@@ -53,4 +53,25 @@ describe('AdvancedSearchBar interactions', () => {
 
     expect(onSearch).toHaveBeenCalled();
   });
+
+  test('should call on search when searchbar is submitted', () => {
+    const onSearch = jest.fn();
+
+    const { getByTestId } = render(
+      <ThemeProvider theme={theme}>
+        <AdvancedSearchBar
+          onSubmitEditing={onSearch}
+          setValue={function (value: string): void {
+            throw new Error('Function not implemented.');
+          }}
+        />
+      </ThemeProvider>
+    );
+
+    const searchbar = getByTestId('advanced-search-bar');
+
+    searchbar.props.onSubmitEditing();
+
+    expect(onSearch).toHaveBeenCalled();
+  });
 });
