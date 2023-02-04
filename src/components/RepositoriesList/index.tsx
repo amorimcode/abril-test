@@ -51,8 +51,9 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
   };
 
   return (
-    <ScrollView onScroll={onScroll} scrollEventThrottle={15}>
-      {repositories.length > 0 &&
+    <ScrollView onScroll={onScroll} scrollEventThrottle={15} testID={'repositories-list'}>
+      {repositories &&
+        repositories.length > 0 &&
         repositories.map((repository, index) => (
           <ItemContainer
             key={index}
