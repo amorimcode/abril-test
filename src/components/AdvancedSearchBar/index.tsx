@@ -5,7 +5,6 @@ import { Container, Icon, InputText } from './styles';
 
 type AdvancedSearchBarProps = {
   ref?: React.RefObject<TextInput>;
-  repositoriesList: models.Item[];
   style?: StyleProp<ViewStyle>;
   value?: string;
   setValue: (value: string) => void;
@@ -20,7 +19,7 @@ const AdvancedSearchBar = ({
   ref,
 }: AdvancedSearchBarProps) => {
   return (
-    <Container>
+    <Container testID="advanced-search-bar">
       <InputText
         ref={ref}
         placeholder={translate('APP.COMPONENTS.SEARCH_BAR.PLACEHOLDER')}

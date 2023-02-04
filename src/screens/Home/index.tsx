@@ -38,7 +38,6 @@ const Home = () => {
       <HomeTitle>{translate('APP.SCREENS.HOME.TITLE')}</HomeTitle>
 
       <AdvancedSearchBar
-        repositoriesList={repositories}
         value={search}
         setValue={setSearch}
         style={{ height: 36 }}
