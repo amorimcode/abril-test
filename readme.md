@@ -26,7 +26,7 @@ Testes: `yarn test`
 - Expo bare workflow
 - Testes com Jest e react-testing-library
 
-Video de demonstração: [Link](https://drive.google.com/file/d/1qPt_EKwUPyN36MgbkBh40dtRrRC94E5_/view?usp=share_link)
+Video de demonstração: [Link](https://drive.google.com/file/d/1_mPu-rcuLnhiV1C_41D7QwoW3X04Lz7D/view?usp=share_link)
 
 Imagens mostrando diferença de traduções:
 
