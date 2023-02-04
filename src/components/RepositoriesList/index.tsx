@@ -57,7 +57,9 @@ const RepositoriesList = ({ repositories, search, page, setPage }: RepositoriesL
         repositories.map((repository, index) => (
           <ItemContainer
             key={index}
-            onPress={() => navigation.navigate('Repo', { uri: repository.html_url })}
+            onPress={() =>
+              navigation.navigate('Repo', { uri: repository.html_url, title: repository.name })
+            }
           >
             <Wrapper>
               <RepoImage source={{ uri: repository.owner.avatar_url }} />

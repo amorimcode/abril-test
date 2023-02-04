@@ -4,6 +4,7 @@ export declare global {
       Home: undefined;
       Repo: {
         uri: string;
+        title: string;
       };
     }
   }

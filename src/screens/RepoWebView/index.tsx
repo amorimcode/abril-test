@@ -1,13 +1,20 @@
-import { useRoute } from '@react-navigation/native';
+import { useNavigation, useRoute } from '@react-navigation/native';
+import { useEffect } from 'react';
 import WebView from 'react-native-webview';
 
 type ParamsProps = {
   uri: string;
+  title: string;
 };
 
 const RepoWebView = () => {
   const route = useRoute();
-  const { uri } = route.params as ParamsProps;
+  const navigation = useNavigation();
+  const { uri, title } = route.params as ParamsProps;
+
+  useEffect(() => {
+    navigation.setOptions({ title });
+  }, []);
 
   return <WebView source={{ uri }}></WebView>;
 };
